@@ -1,0 +1,137 @@
+[
+  {
+    "id": "l001",
+    "bookId": "b001",
+    "memberId": "m001",
+    "borrowedOn": "2026-09-08",
+    "dueOn": "2026-09-22",
+    "returnedOn": "2026-09-20",
+    "lateFee": 0
+  },
+  {
+    "id": "l002",
+    "bookId": "b011",
+    "memberId": "m002",
+    "borrowedOn": "2026-09-10",
+    "dueOn": "2026-09-24",
+    "returnedOn": "2026-09-30",
+    "lateFee": 150
+  },
+  {
+    "id": "l003",
+    "bookId": "b007",
+    "memberId": "m003",
+    "borrowedOn": "2026-09-12",
+    "dueOn": "2026-09-26",
+    "returnedOn": "2026-09-25",
+    "lateFee": 0
+  },
+  {
+    "id": "l004",
+    "bookId": "b017",
+    "memberId": "m004",
+    "borrowedOn": "2026-09-14",
+    "dueOn": "2026-09-28",
+    "returnedOn": "2026-10-03",
+    "lateFee": 125
+  },
+  {
+    "id": "l005",
+    "bookId": "b001",
+    "memberId": "m005",
+    "borrowedOn": "2026-09-15",
+    "dueOn": "2026-09-29",
+    "returnedOn": "2026-09-29",
+    "lateFee": 0
+  },
+  {
+    "id": "l006",
+    "bookId": "b011",
+    "memberId": "m001",
+    "borrowedOn": "2026-09-20",
+    "dueOn": "2026-10-04",
+    "returnedOn": "2026-10-02",
+    "lateFee": 0
+  },
+  {
+    "id": "l007",
+    "bookId": "b007",
+    "memberId": "m006",
+    "borrowedOn": "2026-09-22",
+    "dueOn": "2026-10-06",
+    "returnedOn": "2026-10-12",
+    "lateFee": 150
+  },
+  {
+    "id": "l008",
+    "bookId": "b018",
+    "memberId": "m003",
+    "borrowedOn": "2026-09-25",
+    "dueOn": "2026-10-09",
+    "returnedOn": "2026-10-08",
+    "lateFee": 0
+  },
+  {
+    "id": "l009",
+    "bookId": "b003",
+    "memberId": "m002",
+    "borrowedOn": "2026-09-24",
+    "dueOn": "2026-10-08",
+    "returnedOn": null,
+    "lateFee": 0
+  },
+  {
+    "id": "l010",
+    "bookId": "b006",
+    "memberId": "m004",
+    "borrowedOn": "2026-09-28",
+    "dueOn": "2026-10-12",
+    "returnedOn": null,
+    "lateFee": 0
+  },
+  {
+    "id": "l011",
+    "bookId": "b012",
+    "memberId": "m007",
+    "borrowedOn": "2026-10-01",
+    "dueOn": "2026-10-15",
+    "returnedOn": null,
+    "lateFee": 0
+  },
+  {
+    "id": "l012",
+    "bookId": "b013",
+    "memberId": "m004",
+    "borrowedOn": "2026-09-30",
+    "dueOn": "2026-10-14",
+    "returnedOn": null,
+    "lateFee": 0
+  },
+  {
+    "id": "l013",
+    "bookId": "b019",
+    "memberId": "m008",
+    "borrowedOn": "2026-10-08",
+    "dueOn": "2026-10-22",
+    "returnedOn": null,
+    "lateFee": 0
+  },
+  {
+    "id": "l014",
+    "bookId": "b002",
+    "memberId": "m003",
+    "borrowedOn": "2026-10-10",
+    "dueOn": "2026-10-24",
+    "returnedOn": null,
+    "lateFee": 0
+  },
+  {
+    "id": "l015",
+    "bookId": "b001",
+    "memberId": "m009",
+    "borrowedOn": "2026-10-13",
+    "dueOn": "2026-10-27",
+    "returnedOn": null,
+    "lateFee": 0
+  }
+]

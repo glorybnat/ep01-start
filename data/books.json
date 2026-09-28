@@ -1,0 +1,162 @@
+[
+  {
+    "id": "b001",
+    "title": "The Left Hand of Darkness",
+    "author": "Ursula K. Le Guin",
+    "isbn": "9780441478125",
+    "year": 1969,
+    "copies": 2
+  },
+  {
+    "id": "b002",
+    "title": "Kindred",
+    "author": "Octavia E. Butler",
+    "isbn": "9780807083697",
+    "year": 1979,
+    "copies": 2
+  },
+  {
+    "id": "b003",
+    "title": "Piranesi",
+    "author": "Susanna Clarke",
+    "isbn": "9781635575637",
+    "year": 2020,
+    "copies": 1
+  },
+  {
+    "id": "b004",
+    "title": "The Dispossessed",
+    "author": "Ursula K. Le Guin",
+    "isbn": "9780061054884",
+    "year": 1974,
+    "copies": 1
+  },
+  {
+    "id": "b005",
+    "title": "Parable of the Sower",
+    "author": "Octavia E. Butler",
+    "isbn": "9780446675505",
+    "year": 1993,
+    "copies": 2
+  },
+  {
+    "id": "b006",
+    "title": "Beloved",
+    "author": "Toni Morrison",
+    "isbn": "9781400033416",
+    "year": 1987,
+    "copies": 1
+  },
+  {
+    "id": "b007",
+    "title": "Things Fall Apart",
+    "author": "Chinua Achebe",
+    "isbn": "9780385474542",
+    "year": 1958,
+    "copies": 3
+  },
+  {
+    "id": "b008",
+    "title": "Norwegian Wood",
+    "author": "Haruki Murakami",
+    "isbn": "9780375704024",
+    "year": 1987,
+    "copies": 2
+  },
+  {
+    "id": "b009",
+    "title": "The Remains of the Day",
+    "author": "Kazuo Ishiguro",
+    "isbn": "9780679731726",
+    "year": 1989,
+    "copies": 1
+  },
+  {
+    "id": "b010",
+    "title": "Never Let Me Go",
+    "author": "Kazuo Ishiguro",
+    "isbn": "9781400078776",
+    "year": 2005,
+    "copies": 2
+  },
+  {
+    "id": "b011",
+    "title": "Dune",
+    "author": "Frank Herbert",
+    "isbn": "9780441172719",
+    "year": 1965,
+    "copies": 2
+  },
+  {
+    "id": "b012",
+    "title": "Neuromancer",
+    "author": "William Gibson",
+    "isbn": "9780441569595",
+    "year": 1984,
+    "copies": 1
+  },
+  {
+    "id": "b013",
+    "title": "The Name of the Rose",
+    "author": "Umberto Eco",
+    "isbn": "9780156001311",
+    "year": 1980,
+    "copies": 1
+  },
+  {
+    "id": "b014",
+    "title": "Wolf Hall",
+    "author": "Hilary Mantel",
+    "isbn": "9780312429980",
+    "year": 2009,
+    "copies": 2
+  },
+  {
+    "id": "b015",
+    "title": "Circe",
+    "author": "Madeline Miller",
+    "isbn": "9780316556347",
+    "year": 2018,
+    "copies": 2
+  },
+  {
+    "id": "b016",
+    "title": "The Overstory",
+    "author": "Richard Powers",
+    "isbn": "9780393635522",
+    "year": 2018,
+    "copies": 1
+  },
+  {
+    "id": "b017",
+    "title": "Sapiens",
+    "author": "Yuval Noah Harari",
+    "isbn": "9780062316097",
+    "year": 2011,
+    "copies": 3
+  },
+  {
+    "id": "b018",
+    "title": "The Pragmatic Programmer",
+    "author": "Andrew Hunt, David Thomas",
+    "isbn": "9780135957059",
+    "year": 1999,
+    "copies": 2
+  },
+  {
+    "id": "b019",
+    "title": "Designing Data-Intensive Applications",
+    "author": "Martin Kleppmann",
+    "isbn": "9781449373320",
+    "year": 2017,
+    "copies": 1
+  },
+  {
+    "id": "b020",
+    "title": "A Short History of Nearly Everything",
+    "author": "Bill Bryson",
+    "isbn": "9780767908184",
+    "year": 2003,
+    "copies": 2
+  }
+]
