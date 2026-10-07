@@ -7,7 +7,7 @@ module.exports = {
   dataDir: process.env.SHELF_DATA_DIR || path.join(__dirname, '..', 'data'),
 
   // Days a member can keep a book before it is due.
-  loanPeriodDays: 7,
+  loanPeriodDays: 14,
 
   // Most books a member can have out at the same time.
   maxActiveLoans: 3,
