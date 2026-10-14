@@ -19,11 +19,11 @@ function countActiveByBook() {
 function listBooks({ q } = {}) {
   let books = bookRepository.findAll();
   if (typeof q === 'string' && q.trim() !== '') {
-    const needle = q.trim();
+    const needle = q.trim().toLowerCase();
     books = books.filter(
       (book) =>
-        book.title.includes(needle) ||
-        book.author.includes(needle)
+        book.title.toLowerCase().includes(needle) ||
+        book.author.toLowerCase().includes(needle)
     );
   }
   const counts = countActiveByBook();
