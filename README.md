@@ -1,3 +1,4 @@
+<!-- Shelf: a small Express API (JSON-file storage, no database) for library lending: manage books and members, borrow and return books, charge late fees, and report on overdue and most-borrowed titles. -->
 # Shelf
 
 Shelf is a small library lending API. Staff manage books and members, members
