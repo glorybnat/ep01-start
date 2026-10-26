@@ -23,6 +23,9 @@ npm start
 
 The API listens on http://localhost:3000. Set `PORT` to use another port.
 
+Open http://localhost:3000 in a browser for the web UI (books, members, loans and
+reports). It is plain HTML, CSS and JavaScript in `public/`, with no build step.
+
 ## Test
 
 ```sh

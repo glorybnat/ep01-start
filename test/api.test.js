@@ -33,6 +33,13 @@ describe('HTTP API', () => {
     assert.deepEqual(body, { status: 'ok' });
   });
 
+  it('serves the web UI at the root', async () => {
+    const response = await fetch(`${baseUrl}/`);
+    assert.equal(response.status, 200);
+    assert.match(response.headers.get('content-type'), /text\/html/);
+    assert.match(await response.text(), /<title>Shelf<\/title>/);
+  });
+
   it('searches books by query string', async () => {
     const { status, body } = await request('/books?q=dune');
     assert.equal(status, 200);
