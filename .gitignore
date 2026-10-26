@@ -1,6 +1,7 @@
 node_modules/
 package-lock.json
 *.log
+!logs/app.log
 *.tmp
 .env
 .DS_Store
