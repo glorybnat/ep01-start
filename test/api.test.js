@@ -2,6 +2,8 @@ const { describe, it, before, after, beforeEach, afterEach } = require('node:tes
 const assert = require('node:assert/strict');
 const { useTempData } = require('./helpers');
 const { createApp } = require('../src/app');
+const config = require('../src/config');
+const { daysBetween } = require('../src/utils/dates');
 
 describe('HTTP API', () => {
   let cleanup;
@@ -74,5 +76,43 @@ describe('HTTP API', () => {
     assert.equal(status, 200);
     assert.ok(body.returnedOn);
     assert.ok(body.lateFee > 0);
+  });
+
+  describe('renewing a loan', () => {
+    async function borrow() {
+      const { body } = await request('/loans', {
+        method: 'POST',
+        body: JSON.stringify({ memberId: 'm001', bookId: 'b007' }),
+      });
+      return body;
+    }
+
+    it('extends the due date by one loan period', async () => {
+      const loan = await borrow();
+      const { status, body } = await request(`/loans/${loan.id}/renew`, { method: 'POST' });
+      assert.equal(status, 200);
+      assert.equal(daysBetween(loan.dueOn, body.dueOn), config.loanPeriodDays);
+      assert.equal(body.renewals, 1);
+    });
+
+    it('returns 404 for an unknown loan', async () => {
+      const { status, body } = await request('/loans/l999/renew', { method: 'POST' });
+      assert.equal(status, 404);
+      assert.match(body.error, /not found/);
+    });
+
+    it('returns 409 when the loan is overdue', async () => {
+      const { status, body } = await request('/loans/l009/renew', { method: 'POST' });
+      assert.equal(status, 409);
+      assert.match(body.error, /overdue/);
+    });
+
+    it('returns 409 when the loan was already renewed', async () => {
+      const loan = await borrow();
+      await request(`/loans/${loan.id}/renew`, { method: 'POST' });
+      const { status, body } = await request(`/loans/${loan.id}/renew`, { method: 'POST' });
+      assert.equal(status, 409);
+      assert.match(body.error, /already been renewed/);
+    });
   });
 });

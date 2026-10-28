@@ -48,6 +48,7 @@ so they never change the seed files.
 | GET    | `/loans`                  | List loans; `?status=active` or `?status=returned` |
 | POST   | `/loans`                  | Borrow a book (`memberId`, `bookId`)               |
 | POST   | `/loans/:id/return`       | Return a book and charge any late fee              |
+| POST   | `/loans/:id/renew`        | Renew an active loan once, extending its due date  |
 | GET    | `/reports/overdue`        | Active loans past their due date                   |
 | GET    | `/reports/most-borrowed`  | Most borrowed books; `?limit=` (default 5)         |
 
@@ -60,6 +61,10 @@ Errors come back as JSON: `{ "error": "message" }` with a 400, 404 or 409 status
 - A loan can only be started while a copy is available.
 - Late fees are $0.25 for each day past the due date, capped at $15.00 per loan.
   The fee is calculated when the book is returned.
+- An active loan can be renewed once. Renewing adds another 14 days to the current due
+  date, so renewing early does not lose any days.
+- A loan that is past its due date cannot be renewed; renewing on the due date itself is
+  allowed. A returned loan cannot be renewed either.
 
 ## Data
 

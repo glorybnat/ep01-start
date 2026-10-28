@@ -15,8 +15,8 @@ Acceptance: `npm test` passes; renewal behaviour covered by tests; POST /loans/:
   - borrowBook: add `renewals: 0` to the inserted loan. Legacy loans in data/loans.json lack the field; treat missing as 0, do not edit seed data.
   - Tests (node:test style of existing file, injected dates, useTempData): extends dueOn by loanPeriodDays; renewals becomes 1; second renewal rejected; overdue rejected (asOf = dueOn + 1); renew on dueOn day allowed; returned loan rejected; unknown id -> NotFoundError.
   - Done-check: `npm test` all green; do not touch routes or README.
-- [ ] 2. (sonnet) Route — src/routes/loans.js: `POST /:id/renew` calling loanService.renewLoan(req.params.id); return 200 + loan. Add api.test.js cases (200, 404, 409). Done-check: `npm test`.
-- [ ] 3. (haiku) README — Endpoints (README.md:38) add POST /loans/:id/renew; Lending rules (README.md:56) add renewal rules. Done-check: read diff.
+- [x] 2. (sonnet) Route — src/routes/loans.js: `POST /:id/renew` calling loanService.renewLoan(req.params.id); return 200 + loan. Add api.test.js cases (200, 404, 409). Done-check: `npm test`.
+- [x] 3. (haiku) README — Endpoints (README.md:38) add POST /loans/:id/renew; Lending rules (README.md:56) add renewal rules. Done-check: read diff.
 - [ ] 4. (sonnet checker) `npm test` + diff review against this file.
 
 ## Decisions

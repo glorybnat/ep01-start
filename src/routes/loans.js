@@ -15,4 +15,8 @@ router.post('/:id/return', (req, res) => {
   res.json(loanService.checkIn(req.params.id));
 });
 
+router.post('/:id/renew', (req, res) => {
+  res.json(loanService.renew(req.params.id));
+});
+
 module.exports = router;
