@@ -1,7 +1,7 @@
 const bookRepository = require('../data/bookRepository');
 const memberRepository = require('../data/memberRepository');
 const loanRepository = require('../data/loanRepository');
-const { daysOverdue } = require('./loanService');
+const { daysLate } = require('./loanService');
 const { today } = require('../utils/dates');
 
 // Active loans past their due date, worst offenders first.
@@ -19,7 +19,7 @@ function getOverdueLoans(asOf = today()) {
       bookId: loan.bookId,
       title: books.get(loan.bookId)?.title ?? 'Unknown book',
       dueOn: loan.dueOn,
-      daysOverdue: daysOverdue(loan, asOf),
+      daysOverdue: daysLate(loan, asOf),
     }))
     .sort((a, b) => b.daysOverdue - a.daysOverdue);
 }

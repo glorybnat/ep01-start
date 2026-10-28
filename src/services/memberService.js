@@ -2,7 +2,7 @@ const bookRepository = require('../data/bookRepository');
 const memberRepository = require('../data/memberRepository');
 const loanRepository = require('../data/loanRepository');
 const { calculateLateFee } = require('./feeService');
-const { daysOverdue } = require('./loanService');
+const { daysLate } = require('./loanService');
 const { today } = require('../utils/dates');
 const { formatCents } = require('../utils/money');
 const { NotFoundError } = require('../utils/errors');
@@ -30,7 +30,7 @@ function getMemberDetail(id, asOf = today()) {
         title: booksById.get(loan.bookId)?.title ?? 'Unknown book',
         borrowedOn: loan.borrowedOn,
         dueOn: loan.dueOn,
-        daysOverdue: daysOverdue(loan, asOf),
+        daysOverdue: daysLate(loan, asOf),
         accruedFee,
         accruedFeeFormatted: formatCents(accruedFee),
       };

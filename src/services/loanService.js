@@ -10,26 +10,26 @@ const { NotFoundError, ConflictError, ValidationError } = require('../utils/erro
 
 const STATUSES = ['active', 'returned'];
 
-function daysOverdue(loan, asOf = today()) {
+function daysLate(loan, asOf = today()) {
   if (loan.returnedOn) return 0;
   return Math.max(0, daysBetween(loan.dueOn, asOf));
 }
 
-function describeLoan(loan) {
+function present(loan) {
   return { ...loan, lateFeeFormatted: formatCents(loan.lateFee) };
 }
 
-function listLoans({ status } = {}) {
+function list({ status } = {}) {
   if (status !== undefined && !STATUSES.includes(status)) {
     throw new ValidationError(`status must be one of: ${STATUSES.join(', ')}`);
   }
   let loans = loanRepository.findAll();
   if (status === 'active') loans = loans.filter((loan) => loan.returnedOn === null);
   if (status === 'returned') loans = loans.filter((loan) => loan.returnedOn !== null);
-  return loans.map(describeLoan);
+  return loans.map(present);
 }
 
-function borrowBook(input, borrowedOn = today()) {
+function checkOut(input, borrowedOn = today()) {
   const body = input || {};
   const memberId = requireString(body.memberId, 'memberId');
   const bookId = requireString(body.bookId, 'bookId');
@@ -55,11 +55,12 @@ function borrowBook(input, borrowedOn = today()) {
     dueOn: addDays(borrowedOn, config.loanPeriodDays),
     returnedOn: null,
     lateFee: 0,
+    renewals: 0,
   });
-  return describeLoan(loan);
+  return present(loan);
 }
 
-function returnBook(loanId, returnedOn = today()) {
+function checkIn(loanId, returnedOn = today()) {
   const loan = loanRepository.findById(loanId);
   if (!loan) throw new NotFoundError(`Loan ${loanId} not found`);
   if (loan.returnedOn) {
@@ -68,7 +69,28 @@ function returnBook(loanId, returnedOn = today()) {
 
   const lateFee = calculateLateFee(loan, returnedOn);
   const updated = loanRepository.update(loanId, { returnedOn, lateFee });
-  return describeLoan(updated);
+  return present(updated);
 }
 
-module.exports = { listLoans, borrowBook, returnBook, daysOverdue };
+function renew(loanId, asOf = today()) {
+  const loan = loanRepository.findById(loanId);
+  if (!loan) throw new NotFoundError(`Loan ${loanId} not found`);
+  if (loan.returnedOn) {
+    throw new ConflictError(`Loan ${loanId} is not active; it was returned on ${loan.returnedOn}`);
+  }
+  if (daysLate(loan, asOf) > 0) {
+    throw new ConflictError(`Loan ${loanId} is overdue and cannot be renewed`);
+  }
+  const renewals = loan.renewals ?? 0;
+  if (renewals >= 1) {
+    throw new ConflictError(`Loan ${loanId} has already been renewed`);
+  }
+
+  const updated = loanRepository.update(loanId, {
+    dueOn: addDays(loan.dueOn, config.loanPeriodDays),
+    renewals: renewals + 1,
+  });
+  return present(updated);
+}
+
+module.exports = { list, checkOut, checkIn, renew, daysLate };
